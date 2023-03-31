@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="ThuongPham">
+    <meta name="keywords" content="Thuong Pham, cong nghe phan mem, phan tich thiet ke">
+    
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="/static/tuTao.css" type="text/css"/>
+    <title>
+Đăng ký
+</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm navbar-light sticky-top bg-primary">
+            <a class="navbar-brand" style="color: gold;" href="/">Web kiểm tra
+            </a>
+            <!-- Toggler/collapsibe Button -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+            </button>
+            <!--navbar links-->
+            <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: black;" href="/">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: black;" href="/">Thông báo</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" style="color: black;" href="/" id="navbardrop" data-toggle="dropdown">
+                        Lớp
+                        </a>
+                        <div class="dropdown-menu">
+                            
+                            <a class="dropdown-item" style="color: black;" href="/lop1">Lớp 2</a>
+                            
+                            <a class="dropdown-item" style="color: black;" href="/lop2">Lớp 3</a>
+                            
+                            <a class="dropdown-item" style="color: black;" href="/lop3">Lớp 5</a>
+                            
+                            <a class="dropdown-item" style="color: black;" href="/lop4">Lớp 7</a>
+                            
+                            <a class="dropdown-item" style="color: black;" href="/lop5">Lớp 4</a>
+                            
+                            <a class="dropdown-item" style="color: black;" href="/lop6">Lớp 6</a>
+                            
+                        </div>                      
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="color: black;" href="/lienhe/">Liên hệ</a>
+                    </li>
+                </ul>
+            </div>
+            <ul class="navbar-nav ml-auto">
+                
+                <li class="nav-item">
+                    <a class="nav-link" style="color: black;" href="/dangky/">Đăng ký</a>    
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" style="color: black;" href="/dangnhap/">Đăng nhập</a>
+                </li>
+                
+            </ul>
+        </nav>
+        <div class="row">
+            <div class="col-sm-2">
+                
+                
+            </div>
+            <div class="col-sm-8">
+                <div>
+                    
+<script type="text/javascript">
+    function kiemTraTen(ten){
+        if (ten == ""){
+            document.getElementById("loiTen").textContent="Tên tài khoản chưa được nhập!";
+            return false;
+        }
+        else if (ten.length < 3){
+            document.getElementById("loiTen").textContent="Tên tài khoản phải có ít nhất 3 ký tự!";
+            return false;
+        }
+        else {
+            document.getElementById("loiTen").textContent="";
+            return true;
+        }
+    }
+    function kiemTraMatKhau1(mk1){
+        if (mk1 == ""){
+            document.getElementById("loipassword1").textContent="Mật khẩu chưa được nhập!";
+            return false;
+        }
+        else if (mk1.length < 6){
+            document.getElementById("loipassword1").textContent="Mật khẩu phải có ít nhất 6 ký tự!";
+            return false;
+        }
+        else{
+            document.getElementById("loipassword1").textContent=""
+            return true;
+        }
+    }
+    function kiemTraMatKhau2(mk2, mk1){
+        if (mk2 == ""){
+            document.getElementById("loipassword1").textContent="Mật khẩu chưa được nhập lại!";
+            return false;
+        }
+        else if (mk2 != mk1){
+            document.getElementById("loipassword2").textContent="Hai mật khẩu không trùng khớp!";
+            return false;
+        }
+        else{
+            document.getElementById("loipassword2").textContent=""
+            return true;
+        }
+    }
+    function xacNhanFormDK(){
+        var ten = document.forms['formDK']['username'].value;
+        kqten = kiemTraTen(ten);
+        if (kqten){
+            var mk1 = document.forms['formDK']['password1'].value;
+            kqmk1 = kiemTraMatKhau1(mk1);
+            if (kqmk1){
+                var mk2 = document.forms['formDK']['password2'].value;
+                kqmk2 = kiemTraMatKhau2(mk2,mk1);
+                if (kqmk2){
+                    return true;
+                }
+                else {
+                    return false;
+                }
+            }
+            else {
+                return false;
+            }
+        }
+        else {
+            return false;
+        }
+    }
+</script>
+
+
+<form name="formDK" action="." method="post" onsubmit="return xacNhanFormDK()">
+    <input type="hidden" name="csrfmiddlewaretoken" value="RpVvHKhbvAeC7FyR0aOELQwzQHe8WE260CGyBsLI04keWu2tL2UUWNdoYoli1VEP">
+
+    <table>
+        <tr>
+            <td><label>Tên tài khoản</label></td>
+            <td><input type="text" id="username" name="username" placeholder="Có ít nhất 3 ký tự"></td>
+            <td>
+                <label id="loiTen" style="color: red;"></label>
+            </td>
+            
+        </tr>
+        <tr>
+            <td><label>Mật khẩu</label></td>
+            <td><input type="password" name="password1" placeholder="Có ít nhất 6 ký tự"></td>
+            <td>
+                <label id="loipassword1" style="color: red;"></label>
+            </td>
+        </tr>
+        <tr>
+            <td><label>Nhập lại mật khẩu</label></td>
+            <td><input type="password" name="password2"></td>
+            <td>
+                <label id="loipassword2" style="color: red;"></label>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="Đăng ký">
+                <input type="hidden" name="next" value="/">
+            </td>
+        </tr>
+    </table>
+</form>
+
+    
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <div>
+                    <p style="color: goldenrod"><b>Bảng vàng thành tích:</b></p>
+                    
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="color: mediumblue;">dnminhchau__TA5_Bai1: 10.0</li>
+                    </ul>
+                    
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="color: mediumblue;">dnminhchau__TA5_Bai2: 10.0</li>
+                    </ul>
+                    
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="color: mediumblue;">ngocminh_TA3_Bai2: 10.0</li>
+                    </ul>
+                    
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="color: mediumblue;">khangthuong_TA2_Bai3: 10.0</li>
+                    </ul>
+                    
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="color: mediumblue;">ngocminh_TA3_Bai3: 10.0</li>
+                    </ul>
+                    
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="color: mediumblue;">ngocminh_TA3_Bai4: 10.0</li>
+                    </ul>
+                    
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="color: mediumblue;">thuong_TA2_Bai2: 10.0</li>
+                    </ul>
+                    
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="color: mediumblue;">dnminhchau__TA5_Bai3: 10.0</li>
+                    </ul>
+                    
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="color: mediumblue;">monkey end thuong_TA3_HKI_Bai2: 10.0</li>
+                    </ul>
+                    
+                    <ul class="navbar-nav">
+                        <li class="nav-item" style="color: mediumblue;">monkey end thuong_TA3_HKI1_Bai4: 10.0</li>
+                    </ul>
+                    
+                </div>
+            </div>
+        </div>
+        <div class="row footer text-center text-dark bg-primary">
+            <div class="col">
+                <p style="color: black;">Trang web thuộc về Thương Phạm</p>
+            </div>    
+        </div>  
+    </div>
+    <script src="/static/js/jquery.min.js"></script>
+    <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>-->
+    <script src="/static/js/bootstrap.min.js"></script>
+  
+</body>
+</html>
